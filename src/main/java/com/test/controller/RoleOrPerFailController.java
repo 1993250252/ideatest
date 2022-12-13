@@ -15,6 +15,7 @@ public class RoleOrPerFailController {
 
     @RequestMapping("/abc")
     public String unFail(){
+        System.out.println("你好");
         return "unauthorized";
     }
 }
