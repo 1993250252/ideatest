@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.ArticlesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.test.model.Articles">
+        <result column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="body" property="body" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        title, body
+    </sql>
+    <select id="queryByPage" resultType="com.test.model.Articles">
+        select <include refid="Base_Column_List"/>
+        from t_articles where 1=1
+        <if test="title!=null">
+            and title like concat('%',#{title},'%')
+        </if>
+    </select>
+
+</mapper>
