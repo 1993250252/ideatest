@@ -23,6 +23,7 @@ public class IndexController {
 
     @RequestMapping("/toMain")
     public String  toMain(){
+        System.out.println("你好");
         return "main";
     }
 
